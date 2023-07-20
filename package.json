@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node prebuild.js",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port 80",
+    "start80": "next start --port 80",
+    "start1024": "next start --port 1024",
     "lint": "next lint"
   },
   "dependencies": {
