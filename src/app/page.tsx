@@ -13,7 +13,7 @@ const url = `${OFFERS_URL}?limit=${HOW_MANY_OFFERS}`;
 
 async function getOffers() {
   // await new Promise(resolve => {});
-  await new Promise(resolve => setTimeout(resolve, 2500));
+  // await new Promise(resolve => setTimeout(resolve, 2500));
   const res = await fetch(`${OFFERS_URL}?limit=${HOW_MANY_OFFERS}`)
   return await res.json() as Offer[];
 }
