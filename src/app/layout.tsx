@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </footer>
 
-        <script src='bootstrap.bundle.min.js' /></body>
+        <script src='assets/bootstrap.bundle.min.js'/></body>
     </html>
   )
 }
