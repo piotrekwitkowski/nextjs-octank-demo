@@ -18,7 +18,7 @@ git clone https://github.com/piotrekwitkowski/nextjs-octank-demo.git app
 cd app
 npm i
 npm run build
-npm start
+PORT=80 npm start
 ```
 
 Useful for cloud init monitoring: 
