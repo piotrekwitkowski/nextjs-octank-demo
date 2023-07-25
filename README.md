@@ -17,7 +17,7 @@ npm -v   # Check npm version
 git clone https://github.com/piotrekwitkowski/nextjs-octank-demo.git app
 cd app
 npm i
-npm run build
+NEXT_TELEMETRY_DISABLED=1 npm run build
 PORT=80 npm start
 ```
 
