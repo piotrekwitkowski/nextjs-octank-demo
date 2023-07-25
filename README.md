@@ -13,7 +13,6 @@ sudo yum install -y git nodejs
 git -v
 node -v  # Check node version
 npm -v   # Check npm version
-npm i -g pm2
 
 git clone https://github.com/piotrekwitkowski/nextjs-octank-demo.git app
 cd app
