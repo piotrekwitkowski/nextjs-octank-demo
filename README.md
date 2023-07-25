@@ -1,6 +1,10 @@
 # Octank Nextjs Demo
+![](./website.png)
 
-## Deployment on EC2
+## Prerequisites
+You need Offers API endpoint deployed separately. There is no documentation on how to deploy it yet.
+
+## Website deployment on EC2
 User data for EC2:
 ```bash
 #!/bin/bash
@@ -16,26 +20,15 @@ cd app
 npm i
 npm run build
 npm start
-# export PM2_HOME=/home/ec2-user
-# export HOME=/home/ec2-user
-# pm2 startup -u ec2-user --hp /home/ec2-user
-# PORT=80 pm2 start npm --name app -- start
-# pm2 save
 ```
 
-Useful for further monitoring: 
+Useful for cloud init monitoring: 
 ```bash
 tail -f /var/log/cloud-init-output.log
 ```
 
-pm2 resurrect # 
-pm2 kill      # kill all processes started with pm2
-pm2 list      # list ...
-pm2 monit     # monitor ...
-```
 
-
-## Deployment on Lambda
+## Website deployment on Lambda
 Based on https://github.com/sladg/nextjs-lambda
 1. Adjust `next.config.js` like described here: https://github.com/sladg/nextjs-lambda#:~:text=next.config.js
 
