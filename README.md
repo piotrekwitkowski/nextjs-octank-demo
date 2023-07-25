@@ -15,10 +15,12 @@ git clone https://github.com/piotrekwitkowski/nextjs-octank-demo.git app
 cd app
 npm i
 npm run build
-export PM2_HOME=.pm2
-pm2 -v
-PORT=80 pm2 start npm --name app -- start
-pm2 save
+npm start
+# export PM2_HOME=/home/ec2-user
+# export HOME=/home/ec2-user
+# pm2 startup -u ec2-user --hp /home/ec2-user
+# PORT=80 pm2 start npm --name app -- start
+# pm2 save
 ```
 
 Useful for further monitoring: 
