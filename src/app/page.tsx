@@ -5,11 +5,6 @@ import { Offer } from '@/types';
 import { OfferItem } from './offer-item';
 import PageContentHeader from './page-content-header';
 import PageContentWrapper from './page-content-wrapper';
-import { headers } from 'next/headers';
-
-// const getOffers = () => fetch(`${OFFERS_URL}?limit=${HOW_MANY_OFFERS}`).then(res => res.json()) as Promise<Offer[]>;
-const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json())
-const url = `${OFFERS_URL}?limit=${HOW_MANY_OFFERS}`;
 
 async function getOffers() {
   // await new Promise(resolve => {});
@@ -17,7 +12,6 @@ async function getOffers() {
   const res = await fetch(`${OFFERS_URL}?limit=${HOW_MANY_OFFERS}`)
   return await res.json() as Offer[];
 }
-
 
 export default async function HomePage() {
   const offers = await getOffers();
@@ -40,7 +34,6 @@ export default async function HomePage() {
 
   return (
     <>
-
       <PageContentHeader/>
       <PageContentWrapper>
         {offers.map((offer, i) => <OfferItem key={i} offer={offer} />)}
