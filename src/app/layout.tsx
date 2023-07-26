@@ -59,8 +59,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* <p className="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p> */}
           </div>
         </footer>
-        <RumClient />
-        <script src='assets/bootstrap.bundle.min.js'/></body>
+        {/* <RumClient /> */}
+        <script src='assets/bootstrap.bundle.min.js' />
+      </body>
     </html>
   )
 }

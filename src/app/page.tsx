@@ -6,15 +6,21 @@ import { OfferItem } from './offer-item';
 import PageContentHeader from './page-content-header';
 import PageContentWrapper from './page-content-wrapper';
 
-async function getOffers() {
-  // await new Promise(resolve => {});
-  // await new Promise(resolve => setTimeout(resolve, 2500));
+async function getOffers(apiCallDelay: number) {
+  await new Promise(resolve => setTimeout(resolve, apiCallDelay));
   const res = await fetch(`${OFFERS_URL}?limit=${HOW_MANY_OFFERS}`)
   return await res.json() as Offer[];
 }
 
-export default async function HomePage() {
-  const offers = await getOffers();
+export default async function HomePage(
+  { searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }
+  // { searchParams }: { searchParams?: { [key: string]: string | undefined } } // Actually should 
+) {
+  const delayString = !searchParams?.delay ? '0' : (typeof searchParams?.delay === 'string') ? searchParams?.delay : searchParams?.delay[0];
+  const apiCallDelay = Number(delayString);
+  console.log('API call delay:', apiCallDelay);
+  const offers = await getOffers(apiCallDelay);
+  
   // const { data, error } = useSWR(url, fetcher)
 
   // getOffers().then(data => offers = data);
@@ -34,7 +40,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <PageContentHeader/>
+      <PageContentHeader />
       <PageContentWrapper>
         {offers.map((offer, i) => <OfferItem key={i} offer={offer} />)}
       </PageContentWrapper>
