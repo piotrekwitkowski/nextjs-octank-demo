@@ -1,5 +1,5 @@
 "use client"
-import { RUM_APPLICATION_ID_CLOUDFRONT, RUM_APPLICATION_ID_ELB } from '@/config';
+import { RUM_APPLICATION_ID_CLOUDFRONT, RUM_APPLICATION_ID_ELB, RUM_APPLICATION_ID_LOCALHOST } from '@/config';
 import { AwsRum, AwsRumConfig } from 'aws-rum-web';
 import { useEffect } from 'react';
 
@@ -11,13 +11,14 @@ export const RumClient = () => {
     }
   }, []);
 
-  return <></> // Nothing to render
+  return <>Amazon CloudWatch RUM client-side code loaded.</> // Nothing to render
 }
 
 const getRumApplicationId = () => {
-  console.log('window.location.hostname used for RUM:', window.location.hostname);
+  console.log('window.location.hostname:', window.location.hostname);
   if (window.location.hostname.includes('cloudfront')) return RUM_APPLICATION_ID_CLOUDFRONT;
   if (window.location.hostname.includes('elb.amazonaws.com')) return RUM_APPLICATION_ID_ELB;
+  return RUM_APPLICATION_ID_LOCALHOST;
 }
 
 const enableRum = (applicationId: string) => {
