@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
+import { RumClient } from './rum-client';
 
 export const metadata: Metadata = {
   title: 'Octank Properties',
@@ -58,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* <p className="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p> */}
           </div>
         </footer>
-
+        <RumClient />
         <script src='assets/bootstrap.bundle.min.js'/></body>
     </html>
   )
