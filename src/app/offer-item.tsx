@@ -1,13 +1,18 @@
+"use client"
 import { ReactNode } from "react";
 import { IMAGES_URL_PREFIX } from "@/config";
+import Image, { ImageLoaderProps } from "next/image";
 import { Offer } from "../types";
 
 export function OfferItem({ offer }: { offer: Offer }) {
   const { address, id, name, price } = offer;
 
+  const loader = ({ src, width }: ImageLoaderProps) => `${IMAGES_URL_PREFIX}${src}?format=auto&width=${width}`;
+
   return (
     <OfferItemTemplate
-      header={<img src={`${IMAGES_URL_PREFIX}${id}.jpeg`} alt={name} width="100%" height="225" style={{ objectFit: 'cover' }} />}
+      // header={<img src={`${IMAGES_URL_PREFIX}${id}.jpeg`} alt={name} height='225' width='640' style={{ objectFit: 'cover', width: '100%' }} />}
+      header={<Image loader={loader} src={`${id}.jpeg`} alt={name} height='225' width='640' style={{ objectFit: 'cover', width: '100%' }} />}
       title={name}
       subtitle={address}
       button={<a type="button" className="btn btn-sm btn-primary">View details</a>}
@@ -41,7 +46,7 @@ function OfferItemTemplate(props: TemplateProps) {
     <div className="col">
       <div className="card shadow-sm">
         {props.header}
-        <div className="card-body">
+        <div className="card-body" style={{ backgroundColor: 'white', zIndex: 0 }}>
           <h4 className="card-title placeholder-glow">
             {props.title}
           </h4>
