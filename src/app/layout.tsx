@@ -16,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <header data-bs-theme="dark">
           <div className="collapse text-bg-dark" id="navbarHeader">
+            <RumClient />
             {Array.from(headersList.entries()).map(([k, v], i) => <li key={i}>{k}: {v}</li>)}
             <div className="container">
               <div className="row">
@@ -59,7 +60,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* <p className="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p> */}
           </div>
         </footer>
-        {/* <RumClient /> */}
         <script src='assets/bootstrap.bundle.min.js' />
       </body>
     </html>
