@@ -15,7 +15,7 @@ export function OfferItem({ offer }: { offer: Offer }) {
       header={<Image loader={loader} src={`${id}.jpeg`} alt={name} height='225' width='640' style={{ objectFit: 'cover', width: '100%' }} />}
       title={name}
       subtitle={address}
-      button={<a type="button" className="btn btn-sm btn-primary">View details</a>}
+      button={<a type="button" href="#" className="btn btn-sm btn-primary">View details</a>}
       infoText={<span className="text-muted">{price}</span>}
     />
   )
@@ -27,7 +27,7 @@ export function OfferItemPlaceholder() {
       header={<span className="placeholder w-100 bg-secondary" style={{ height: '225px' }} />}
       title={<span className="placeholder col-7" />}
       subtitle={<span className="placeholder col-9" />}
-      button={<a type="button" className="btn btn-sm btn-primary disabled placeholder col-3" />}
+      button={<button type="button" className="btn btn-sm btn-primary disabled placeholder col-3" />}
       infoText={<span className="text-muted placeholder-glow w-25"><span className="placeholder w-100"></span></span>}
     />
   )
