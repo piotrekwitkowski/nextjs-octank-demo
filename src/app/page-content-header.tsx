@@ -1,4 +1,4 @@
-export default function PageContentHeader() {
+export const PageContentHeader = () => {
   return (
     <section className="py-4 text-center container">
       <div className="row py-lg-3">

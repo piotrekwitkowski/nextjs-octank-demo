@@ -1,7 +1,7 @@
 import { HOW_MANY_OFFERS } from "@/config";
 import { OfferItemPlaceholder } from "./offer-item";
-import PageContentHeader from "./page-content-header";
-import PageContentWrapper from "./page-content-wrapper";
+import { PageContentHeader } from "./page-content-header";
+import { PageContentWrapper } from "./page-content-wrapper";
 
 export default function Loading() {
   return (

@@ -1,27 +1,24 @@
-"use client"
 import { ReactNode } from "react";
-import { IMAGES_URL_PREFIX } from "@/config";
-import Image, { ImageLoaderProps } from "next/image";
 import { Offer } from "../types";
+import { OfferItemImage } from "./offer-item-image";
 
-export function OfferItem({ offer }: { offer: Offer }) {
-  const { address, id, name, price } = offer;
+interface OfferItemProps {
+  offer: Offer;
+}
 
-  const loader = ({ src, width }: ImageLoaderProps) => `${IMAGES_URL_PREFIX}${src}?format=auto&width=${width}`;
-
+export const OfferItem = ({ offer }: OfferItemProps) => {
   return (
     <OfferItemTemplate
-      // header={<img src={`${IMAGES_URL_PREFIX}${id}.jpeg`} alt={name} height='225' width='640' style={{ objectFit: 'cover', width: '100%' }} />}
-      header={<Image loader={loader} src={`${id}.jpeg`} alt={name} height='225' width='640' style={{ objectFit: 'cover', width: '100%' }} />}
-      title={name}
-      subtitle={address}
+      header={<OfferItemImage id={offer.id} name={offer.name} />}
+      title={offer.name}
+      subtitle={offer.address}
       button={<a type="button" href="#" className="btn btn-sm btn-primary">View details</a>}
-      infoText={<span className="text-muted">{price}</span>}
+      infoText={<span className="text-muted">{offer.price}</span>}
     />
   )
 }
 
-export function OfferItemPlaceholder() {
+export const OfferItemPlaceholder = () => {
   return (
     <OfferItemTemplate
       header={<span className="placeholder w-100 bg-secondary" style={{ height: '225px' }} />}
@@ -41,7 +38,7 @@ interface TemplateProps {
   infoText?: ReactNode;
 }
 
-function OfferItemTemplate(props: TemplateProps) {
+const OfferItemTemplate = (props: TemplateProps) => {
   return (
     <div className="col">
       <div className="card shadow-sm">

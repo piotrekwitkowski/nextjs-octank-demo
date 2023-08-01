@@ -1,5 +1,6 @@
-// Property data array
-export const getData = () => [
+import { Offer } from "@/types";
+
+export const OFFERS_MOCK_DATA = [
   { "id": "l1", "name": "Chelsea Townhouse", "price": "£2.5 million", "address": "123 King's Road, Chelsea, London SW3 4TH", "bedrooms": 4, "bathrooms": 3, "square_footage": 2500, "city": "London", "type": "house" },
   { "id": "l2", "name": "Notting Hill Victorian", "price": "£1.5 million", "address": "14 Portobello Road, Notting Hill, London W11 3AQ", "bedrooms": 3, "bathrooms": 2, "square_footage": 1800, "city": "London", "type": "house" },
   { "id": "l3", "name": "Mayfair Penthouse", "price": "£5 million", "address": "100 Park Lane, Mayfair, London W1K 1NY", "bedrooms": 5, "bathrooms": 4, "square_footage": 3500, "city": "London", "type": "house" },
@@ -19,4 +20,4 @@ export const getData = () => [
   { "id": "m8", "name": "Chorlton Flat", "price": "£750,000", "address": "10 Barlow Moor Road, Chorlton, Manchester M21 7HR", "bedrooms": 1, "bathrooms": 1, "square_footage": 500, "city": "Manchester", "type": "flat" },
   { "id": "m9", "name": "Rusholme Apartment", "price": "£900,000", "address": "123 Wilmslow Road, Rusholme, Manchester M14 6LY", "bedrooms": 2, "bathrooms": 1, "square_footage": 750, "city": "Manchester", "type": "flat" }
   // ... Add more properties here
-];
+] satisfies Offer[];

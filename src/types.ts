@@ -9,3 +9,11 @@ export interface Offer {
   square_footage: number;
   type: "house" | "flat";
 }
+
+export interface PageProps {
+  searchParams?: SearchParams;
+}
+
+interface SearchParams {
+  [key: string]: string | string[] | undefined;
+}

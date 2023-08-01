@@ -1,41 +1,26 @@
-// "use client"
-// import { useEffect, useState } from 'react'
-import { HOW_MANY_OFFERS, OFFERS_URL } from '@/config';
-import { Offer } from '@/types';
+import { HOW_MANY_OFFERS } from '@/config';
+import { getOffers } from '@/data';
+import { PageProps } from '@/types';
 import { OfferItem } from './offer-item';
-import PageContentHeader from './page-content-header';
-import PageContentWrapper from './page-content-wrapper';
+import { PageContentHeader } from './page-content-header';
+import { PageContentWrapper } from './page-content-wrapper';
 
-async function getOffers(apiCallDelay: number) {
-  await new Promise(resolve => setTimeout(resolve, apiCallDelay));
-  const res = await fetch(`${OFFERS_URL}?limit=${HOW_MANY_OFFERS}`)
-  return await res.json() as Offer[];
-}
-
-export default async function HomePage(
-  { searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }
-  // { searchParams }: { searchParams?: { [key: string]: string | undefined } } // Actually should 
-) {
-  const delayString = !searchParams?.delay ? '0' : (typeof searchParams?.delay === 'string') ? searchParams?.delay : searchParams?.delay[0];
-  const apiCallDelay = Number(delayString);
-  console.log('API call delay:', apiCallDelay);
-  const offers = await getOffers(apiCallDelay);
-  
-  // const { data, error } = useSWR(url, fetcher)
-
-  // getOffers().then(data => offers = data);
+export default async function HomePage(props: PageProps) {
+  const delayParam = props.searchParams?.delay;
+  const delay = Number(delayParam ? (typeof delayParam === 'string' ? delayParam : delayParam[0]) : 0);
+  console.log('API call delay:', delay);
+  await new Promise(resolve => setTimeout(resolve, delay));
+  const offers = getOffers({ limit: HOW_MANY_OFFERS });
 
   // const [offers, setOffers] = useState([]);
   // const [error, setError] = useState<string | undefined>(undefined);
-  // // const [isLoading, setIsLoading] = useState(false);
-
+  // const [isLoading, setIsLoading] = useState(false);
   // useEffect(() => {
-  //   // setIsLoading(true);
-  //   fetch(`${OFFERS_URL}?limit=${HOW_MANY_OFFERS}`)
-  //     .then(res => res.json())
+  //   setIsLoading(true);
+  //   getOffers({ limit: HOW_MANY_OFFERS })
   //     .then(setOffers)
   //     .catch(_ => setError('Error while loading the data'))
-  //   // .finally(() => setIsLoading(false));
+  //     .finally(() => setIsLoading(false));
   // }, []);
 
   return (
