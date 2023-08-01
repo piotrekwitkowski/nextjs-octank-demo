@@ -11,15 +11,13 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const headersList = headers();
-
   return (
     <html lang="en">
       <body>
         <header data-bs-theme="dark">
           <div className="collapse text-bg-dark" id="navbarHeader">
             <RumClient />
-            {Array.from(headersList.entries()).map(([k, v], i) => <li key={i}>{k}: {v}</li>)}
+            {Array.from(headers().entries()).map(([k, v], i) => <li key={i}>{k}: {v}</li>)}
             <div className="container">
               <div className="row">
                 <div className="col-sm-8 col-md-7 py-4">
