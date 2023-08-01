@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import { BASE_ASSETS_PATH } from '@/config';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
+import Script from 'next/script';
 import { RumClient } from './rum-client';
 
 export const metadata: Metadata = {
@@ -60,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* <p className="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p> */}
           </div>
         </footer>
-        <script src='assets/bootstrap.bundle.min.js' />
+        <Script src={BASE_ASSETS_PATH + '/bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js'} />
       </body>
     </html>
   )
