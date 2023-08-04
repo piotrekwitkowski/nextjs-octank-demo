@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { BASE_ASSETS_PATH } from '@/config';
 import type { Metadata } from 'next';
-import { headers } from 'next/headers';
+// import { headers } from 'next/headers';
 import Script from 'next/script';
 import { RumClient } from './rum-client';
 
@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header data-bs-theme="dark">
           <div className="collapse text-bg-dark" id="navbarHeader">
             <RumClient />
-            {Array.from(headers().entries()).map(([k, v], i) => <li key={i}>{k}: {v}</li>)}
+            {/* {Array.from(headers().entries()).map(([k, v], i) => <li key={i}>{k}: {v}</li>)} */}
             <div className="container">
               <div className="row">
                 <div className="col-sm-8 col-md-7 py-4">

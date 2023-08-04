@@ -4,7 +4,7 @@ const path = require('path')
 
 const nextConfig = {
   // compress: false,
-  // output: 'standalone',
+  output: 'export',
   // experimental: {
 	// 	esmExternals: false, // optional
 	// 	externalDir: true, // optional

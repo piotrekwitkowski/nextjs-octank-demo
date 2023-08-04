@@ -6,10 +6,10 @@ import { PageContentHeader } from './page-content-header';
 import { PageContentWrapper } from './page-content-wrapper';
 
 export default async function HomePage(props: PageProps) {
-  const delayParam = props.searchParams?.delay;
-  const delay = Number(delayParam ? (typeof delayParam === 'string' ? delayParam : delayParam[0]) : 0);
-  console.log('API call delay:', delay);
-  await new Promise(resolve => setTimeout(resolve, delay));
+  // const delayParam = props.searchParams?.delay;
+  // const delay = Number(delayParam ? (typeof delayParam === 'string' ? delayParam : delayParam[0]) : 0);
+  // console.log('API call delay:', delay);
+  // await new Promise(resolve => setTimeout(resolve, delay));
   const offers = getOffers({ limit: HOW_MANY_OFFERS });
 
   // const [offers, setOffers] = useState([]);
