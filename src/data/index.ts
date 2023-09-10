@@ -25,11 +25,15 @@ const getOffersMockResponse = (props?: GetOffersProps) => {
   return results satisfies Offer[];
 };
 
-// const getOffersFromAPI = async (props?: GetOffersProps) => {
-//   const { city, type, offset = 0, limit = 20 } = props || {};
-//   const res = await fetch(`${OFFERS_URL}?limit=${limit}`)
-//   return await res.json() as Offer[];
-// }
+// const OFFERS_URL = 'https://pldgwnwuwc66akcxjf4lgqlyfy0shplt.lambda-url.us-east-1.on.aws/';
+// const OFFERS_URL = 'https://u07pi099k9.execute-api.us-east-1.amazonaws.com/offers';
+const OFFERS_URL = 'https://d36syrpn47mnkw.cloudfront.net/offers'
+
+export const getOffersFromAPI = async (props?: GetOffersProps) => {
+  const { city, type, offset = 0, limit = 20 } = props || {};
+  const res = await fetch(`${OFFERS_URL}?limit=${limit}${city ? `&city=${city}` : ''}`)
+  return await res.json() as Offer[];
+}
 
 export const getOffers = getOffersMockResponse;
 

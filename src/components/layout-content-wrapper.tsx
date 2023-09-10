@@ -1,5 +1,5 @@
 // used to center the content on the page
-export const PageContentWrapper = ({ children }: { children: React.ReactNode }) => {
+export const LayoutContentWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="album py-5 bg-body-tertiary">
       <div className="container">

@@ -1,9 +1,13 @@
-export const PageContentHeader = () => {
+interface Props {
+  where?: string;
+}
+
+export const LayoutContentHeader = (props: Props) => {
   return (
     <section className="py-4 text-center container">
       <div className="row py-lg-3">
         <div className="col-md-10 mx-auto">
-          <h1 className="fw-light display-1">Find Your Perfect Property</h1>
+          <h1 className="fw-light display-1">Find Your Perfect Property {props.where && `in ${props.where}`}</h1>
           <span className="text-body-secondary display-4">Discover a Diverse Range of Homes Nationwide, from Cosmopolitan City Apartments to Charming Countryside Retreats and Coastal Residences</span>
         </div>
       </div>

@@ -1,4 +1,5 @@
 export const HOW_MANY_OFFERS = 3;
+export const IMAGES_DELIVERY_DOMAIN = 'https://d1tbezpodw6lur.cloudfront.net'	
 export const BASE_ASSETS_PATH = '/assets';
 // export const OFFERS_URL = 'https://u07pi099k9.execute-api.us-east-1.amazonaws.com/offers';
 
